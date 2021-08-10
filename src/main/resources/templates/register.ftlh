@@ -9,17 +9,23 @@
 <body>
 
 <div>
-    <form action="/register" method="post">
+    <form action="/auth/register" method="post">
         <div>
             <label class="flex flex-v-center">
                 <p class="label-input-text">Имя:</p>
-                <input id="nam" type="text" name="name" placeholder="ваше имя" value="${(dto.name)!''}">
+                <input id="nam" type="text" name="userName" placeholder="ваше имя">
+            </label>
+        </div>
+        <div>
+            <label class="flex flex-v-center">
+                <p class="label-input-text">Имя:</p>
+                <input id="nam" type="text" name="surName" placeholder="ваше Фамиллию">
             </label>
         </div>
         <div>
             <label class="flex flex-v-center">
                 <p class="label-input-text">Адрес почты:</p>
-                <input type="text" name="email" placeholder="ваш адрес почты" value="${(dto.email)!''}">
+                <input type="text" name="email" placeholder="ваш адрес почты">
             </label>
         </div>
         <div>
@@ -32,14 +38,6 @@
             <button type="submit" class="btn btn-outline-success my-2 my-sm-0"
                     style="background: #343a40;color: #f8fafb">Регистрация
             </button>
-        </div>
-        <div>
-            <#if errors?? >
-                <p>Входные данные с ошибками!</p>
-                <#list errors as fieldError>
-                    <p>${fieldError.field} - ${fieldError.defaultMessage!'-- no message --'}</p>
-                </#list>
-            </#if>
         </div>
     </form>
 </div>

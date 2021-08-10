@@ -2,38 +2,62 @@ package com.test.security.model;
 
 
 import com.test.security.enums.Status;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
 
 @Entity
 @Table(name = "users")
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 @Getter
 @Setter
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank
     @Column(name = "user_name")
     private String userName;
+
+    @NotBlank
     @Column(name = "sur_name")
     private String surName;
+
+    @NotBlank
     @Column(name = "password")
     private String password;
+
+    @NotBlank
     @Column(name = "email")
+    @Email
     private String email;
+
     @Column(name = "roles")
-    private String userRole;
+    @Builder.Default
+    private String userRole="USER";
+
     @Enumerated(value = EnumType.STRING)
     @Column(name = "status")
-    private Status status ;
+    @Builder.Default
+    private Status status = Status.ACTIVE ;
+
+    public User() {
+    }
+
+//    public User(Long id, @NotBlank String userName, String surName,
+//                String password, @Email String email, String userRole, Status status) {
+//        this.id = id;
+//        this.userName = userName;
+//        this.surName = surName;
+//        this.password = password;
+//        this.email = email;
+//        this.userRole = userRole;
+//        this.status = status;
+//    }
+
 }
