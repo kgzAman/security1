@@ -24,13 +24,13 @@ public class AdminController {
     }
 
     @GetMapping
-    @PreAuthorize(value = "hasAnyRole('ADMIN')")
+    @PreAuthorize(value = "hasAnyRole('ROLE_ADMIN')")
     public String showAllFunction(){
         return "admin";
     }
 
     @PostMapping("/delete/{id}")
-    @PreAuthorize(value = "hasAnyRole('ADMIN')")
+    @PreAuthorize(value = "hasAnyRole('ROLE_ADMIN')")
     public void deleteUser(@PathVariable Long id){
         userService.deleteUser(id);
     }

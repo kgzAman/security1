@@ -1,6 +1,7 @@
 package com.test.security.model;
 
 
+import com.test.security.enums.Role;
 import com.test.security.enums.Status;
 import lombok.*;
 
@@ -37,9 +38,10 @@ public class User {
     @Email
     private String email;
 
+    @Enumerated(value = EnumType.STRING)
     @Column(name = "roles")
     @Builder.Default
-    private String userRole="USER";
+    private Role userRole=Role.ROLE_USER;
 
     @Enumerated(value = EnumType.STRING)
     @Column(name = "status")
