@@ -51,15 +51,4 @@ public class User {
     public User() {
     }
 
-//    public User(Long id, @NotBlank String userName, String surName,
-//                String password, @Email String email, String userRole, Status status) {
-//        this.id = id;
-//        this.userName = userName;
-//        this.surName = surName;
-//        this.password = password;
-//        this.email = email;
-//        this.userRole = userRole;
-//        this.status = status;
-//    }
-
 }
