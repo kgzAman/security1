@@ -1,12 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<#import "common.ftlh" as c>
+<@c.page>
+<div class="action_of_admin">
 
-ПРИВЕТ АДМИН
+<form action="/admin/getUser" method="post">
+    <label>
+        <input type="text" name="email" placeholder="enter user email">
+    </label>
+    <button class="btn btn-primary" type="submit">поск</button>
+</form>
 
-</body>
-</html>
+<form action="/admin/getAllUsers" method="GET">
+    <button class="btn btn-primary" type="submit">показать всех</button>
+</form>
+</div>
+</@c.page>

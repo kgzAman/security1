@@ -21,11 +21,6 @@ public class AuthController {
         this.userService = userService;
     }
 
-    @GetMapping("/")
-    public String home(){
-        return "index";
-    }
-
     @GetMapping("/login")
     public String signIn() {
         return "login";
@@ -34,9 +29,6 @@ public class AuthController {
 
     @GetMapping("/register")
     public String signUpPage(Model model) {
-        if (!model.containsAttribute("user")){
-            model.addAttribute("user",new User());
-        }
         return "register";
     }
 

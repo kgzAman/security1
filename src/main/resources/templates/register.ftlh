@@ -1,13 +1,5 @@
-<#--<#import "/spring.ftl" as spring>-->
-<#--<#import "main.ftlh" as main>-->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
+<#import "common.ftlh" as c>
+<@c.page>
 <div>
     <form action="/auth/register" method="post">
         <div>
@@ -41,7 +33,4 @@
         </div>
     </form>
 </div>
-</body>
-<script>
-</script>
-</html>
+</@c.page>

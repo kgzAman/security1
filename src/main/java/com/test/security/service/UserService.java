@@ -1,14 +1,18 @@
 package com.test.security.service;
 
 import com.test.security.dto.UserDto;
+import com.test.security.enums.Status;
 import com.test.security.exeptions.UserAlreadyRegisteredException;
 import com.test.security.model.User;
 import com.test.security.repository.UserRepository;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
 
 import java.util.Optional;
 
@@ -43,5 +47,26 @@ public class UserService {
         if(user!=null){
             userRepository.delete(user);
         }
+    }
+
+    public User getUser(String email) {
+        return userRepository.findByEmail(email).orElseThrow(()-> new UsernameNotFoundException("User"+ email+ "not found "));
+    }
+
+    public User makeStatusBan(Long id) {
+             User user=  userRepository.findById(id).orElseThrow(()-> new UsernameNotFoundException("User"+ id+ "not found "));
+             user.setStatus(Status.BANNED);
+             userRepository.save(user);
+        return user;
+    }
+    public User makeStatusActive(Long id) {
+             User user=  userRepository.findById(id).orElseThrow(()-> new UsernameNotFoundException("User"+ id+ "not found "));
+             user.setStatus(Status.ACTIVE);
+             userRepository.save(user);
+        return user;
+    }
+
+    public Page<User> getAllUsers(Pageable pageable) {
+        return userRepository.findAll(pageable);
     }
 }

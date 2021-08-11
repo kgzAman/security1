@@ -1,9 +1,5 @@
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>Login Customer</title>
-</head>
-<body>
+<#import "common.ftlh" as c>
+<@c.page>
 <div class="container">
     <form class="form-signin" method="post" action="/auth/login">
         <h2 class="form-signin-heading">Login</h2>
@@ -18,5 +14,4 @@
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
     </form>
 </div>
-</body>
-</html>
+</@c.page>
