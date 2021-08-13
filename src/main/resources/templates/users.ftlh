@@ -5,7 +5,7 @@
                 <thead class="thead-light">
                 <tr>
                     <th>Имя</th>
-                    <th>фамилия</th>
+                    <th>Дата создания</th>
                     <th>логин</th>
                     <th>статус</th>
                     <th>роль</th>
@@ -13,7 +13,6 @@
                 </tr>
                 </thead>
                 <tbody class="tbody-dark">
-
 
                     <#list users as user>
                     <tr>

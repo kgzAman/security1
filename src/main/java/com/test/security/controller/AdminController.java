@@ -57,6 +57,7 @@ public class AdminController {
         model.addAttribute("user",user);
         return "userInfo";
     }
+
     @PostMapping("/active/{id}")
     @PreAuthorize(value = "hasRole('ROLE_ADMIN')")
     public String makeActiveUser(@PathVariable Long id, Model model){
